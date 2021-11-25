@@ -19,6 +19,12 @@
 
 #### Como ejecutar:
 
+Ejecute:
+
+```
+python3 -m venv env
+```
+
 En Windows, corra:
 
 ```
