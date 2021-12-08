@@ -59,7 +59,7 @@ def sucuri_to_blob(domain, key, secret, date):
             ]) + '.csv'
             with BlobClient.from_connection_string(conn_str=AZURE_CONN_STR, container_name="", blob_name=BLOB) as blob:
                 try:
-                    resp = blob.upload_blob(data)
+                    blob.upload_blob(data)
                 except ResourceExistsError:
                     pass
                 
