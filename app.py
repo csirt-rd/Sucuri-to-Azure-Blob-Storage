@@ -20,6 +20,7 @@ SUCURI_SITES = []
 
 #Sucuri to Azure Storage Blob
 def sucuri_to_blob(domain, key, secret, date):
+    mutex.acquire()
     body = requests.post(
         SUCURI_API_URL,
         data={
@@ -62,10 +63,12 @@ def sucuri_to_blob(domain, key, secret, date):
                     blob.upload_blob(data)
                 except ResourceExistsError:
                     pass
+    mutex.release()
                 
 if __name__ == "__main__":
     yesterday = datetime.now() - timedelta(1)
     threads = list()
+    mutex = threading.Lock()
     for i in SUCURI_SITES:
         if i["enabled"]:
             x = threading.Thread(target=sucuri_to_blob, args=(i["domain"],i["key"],i["secret"],yesterday), daemon=True)
