@@ -52,22 +52,19 @@ python3 app.py
 #### Configuración:
 
 ```python
-AZURE_ACC_KEY = ...        #Cambiar a la llave de cuenta correspondiente.
-AZURE_ACC_NAME = ...       #Cambiar al nombre de cuenta correspondiente.
-container_name = ...       #Cambiar al nombre de blob container correspondiente.
+AZURE_ACC_KEY = ...        # Cambiar a la llave de cuenta correspondiente.
+AZURE_ACC_NAME = ...       # Cambiar al nombre de cuenta correspondiente.
+container_name = ...       # Cambiar al nombre de blob container correspondiente.
 SUCURI_SITES = [
-    ...
     {
-        "domain": "",
-        "key": "",
-        "secret": "",
-        "added_time": "",
-        "enabled": True    #Cambiar a False como sea conveniente.
-    },
-    ...
+        "secret": "...",   # Añadir tantos API_SECRET como le sea necesario.
+        ...
+    }
 ]
 ```
 
 #### Referencias:
 
+https://waf.sucuri.net/?apidocs
 https://docs.microsoft.com/en-us/python/api/overview/azure/storage-blob-readme?view=azure-python
+https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob
